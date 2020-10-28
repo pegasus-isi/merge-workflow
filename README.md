@@ -1,2 +1,2 @@
-# diamond-workflow
-Pegasus Diamond Workflow
+# merge-workflow
+Pegasus Merge Workflow
