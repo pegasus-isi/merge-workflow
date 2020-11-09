@@ -31,8 +31,7 @@ class MergeWorkflow:
     def write(self):
         if not self.sc is None:
             self.sc.write()
-        if not self.props is None:
-            self.props.write()
+        self.props.write()
         self.tc.write()
         self.wf.write()
 
@@ -93,12 +92,12 @@ class MergeWorkflow:
             f = File("bin_%d.txt" % i)
 
             cat.add_args(f).add_inputs(f)
-            ls = Job("ls").add_args("-l", d).set_stdout(f, register_replica=False)
+            ls = Job("ls").add_args("-l", d).set_stdout(f, stage_out=True, register_replica=False)
 
             self.wf.add_jobs(ls)
 
         output = File("binaries.txt")
-        cat.set_stdout(output, register_replica=False)
+        cat.set_stdout(output, stage_out=True, register_replica=True)
 
         self.wf.add_jobs(cat)
 
@@ -134,11 +133,12 @@ if __name__ == "__main__":
     workflow = MergeWorkflow(args.output)
 
     if not args.skip_sites_catalog:
-        print("Creating workflow properties...")
-        workflow.create_pegasus_properties()
         print("Creating execution sites...")
         workflow.create_sites_catalog(args.execution_site_name)
 
+    print("Creating workflow properties...")
+    workflow.create_pegasus_properties()
+   
     print("Creating transformation catalog...")
     workflow.create_transformation_catalog(args.execution_site_name)
 
