@@ -2,7 +2,6 @@
 
 # Dependencies
 - Pegasus v5.0+
-- HTCondor v10.2+
 - Python 3.6+
 
 ![Merge](https://user-images.githubusercontent.com/36110304/210929333-d5c9b20a-912a-43c1-8aef-66dcd8a76636.png)
