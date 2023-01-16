@@ -4,7 +4,7 @@
 - Pegasus v5.0+
 - Python 3.6+
 
-![Merge](https://user-images.githubusercontent.com/36110304/210929333-d5c9b20a-912a-43c1-8aef-66dcd8a76636.png)
+![merge-workflow](https://user-images.githubusercontent.com/36110304/212752962-59adc85a-ab1d-481a-bf30-13791df85428.png)
 
 # File Description
 
